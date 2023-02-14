@@ -16,20 +16,7 @@
         body{
             margin: 0;
             padding: 0;
-        }
-    </style>
-</head>
-<body>
-    <script src="./libs/fas.js"></script>
-	<script type="module">
-        import { App } from './app.js';
-        
-		document.addEventListener("DOMContentLoaded", function(){
-			const app = new App();
-			window.app = app;
-		});
-
-        // Make a blue cube
+            // Make a blue cube
         let cube = new THREE.Mesh(
             new THREE.BoxBufferGeometry(2, 2, 2),
             new THREE.MeshLambertMaterial({color:'blue'})
@@ -48,7 +35,7 @@
         // Add canvas to the page
         document.body.appendChild(renderer.domElement);
 
-        function render(time) {  
+         function render(time) {  
             // Rotate the cube
             cube.rotation.y = time / 1000;
             cube.rotation.x = time / 1000;       
@@ -56,7 +43,18 @@
             renderer.render(scene, camera);
         }
 
-
+        }
+    </style>
+</head>
+<body>
+    <script src="./libs/fas.js"></script>
+	<script type="module">
+        import { App } from './app.js';
+        
+		document.addEventListener("DOMContentLoaded", function(){
+			const app = new App();
+			window.app = app;
+		});
 	</script>
 </body>
 </html>
