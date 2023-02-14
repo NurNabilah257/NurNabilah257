@@ -27,8 +27,9 @@
 		document.addEventListener("DOMContentLoaded", function(){
 			const app = new App();
 			window.app = app;
+		});
 
-            // Make a blue cube
+        // Make a blue cube
         let cube = new THREE.Mesh(
             new THREE.BoxBufferGeometry(2, 2, 2),
             new THREE.MeshLambertMaterial({color:'blue'})
@@ -46,6 +47,7 @@
         renderer.setAnimationLoop(render);
         // Add canvas to the page
         document.body.appendChild(renderer.domElement);
+
         function render(time) {  
             // Rotate the cube
             cube.rotation.y = time / 1000;
@@ -55,7 +57,6 @@
         }
 
 
-		});
 	</script>
 </body>
 </html>
