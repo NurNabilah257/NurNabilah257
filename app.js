@@ -31,6 +31,16 @@ class App{
         
 		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
 		this.scene.add(ambient);
+        
+
+        this.cube = new THREE.Mesh(
+            new THREE.BoxBufferGeometry(1, 1, 1),
+            new THREE.MeshLambertMaterial({color:'blue'})
+        );
+        this.cube.position.set(0, 1.5, 4);
+        this.scene.add(this.cube);
+        this.cube.rotation.y = timestamp / 1000;
+        this.cube.rotation.x = timestamp / 1000;
 
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
 		this.renderer.setPixelRatio( window.devicePixelRatio );
@@ -357,17 +367,7 @@ class App{
         
         this.stats.update();
 		this.renderer.render(this.scene, this.camera);
-        const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
-        this.scene.add(ambient);
-
-        this.cube = new THREE.Mesh(
-            new THREE.BoxBufferGeometry(1, 1, 1),
-            new THREE.MeshLambertMaterial({color:'green'})
-        );
-        this.cube.position.set(0, 1.5, 4);
-        this.scene.add(this.cube);
-this.cube.rotation.y = timestamp / 1000;
-        this.cube.rotation.x = timestamp / 1000;
+        
 	}
 }
 
