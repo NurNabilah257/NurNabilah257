@@ -32,7 +32,7 @@ class App{
 		this.scene.add(ambient);
 
         this.cube = new THREE.Mesh(
-            new THREE.BoxBufferGeometry(1, 1, 1),
+            new THREE.BoxBufferGeometry(2, 2, 2),
             new THREE.MeshLambertMaterial({color:'blue'})
         );
         this.cube.position.set(0, 1.5, 4);
