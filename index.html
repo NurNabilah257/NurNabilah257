@@ -16,33 +16,6 @@
         body{
             margin: 0;
             padding: 0;
-            // Make a blue cube
-        let cube = new THREE.Mesh(
-            new THREE.BoxBufferGeometry(2, 2, 2),
-            new THREE.MeshLambertMaterial({color:'blue'})
-        );
-        
-        scene.add(cube);
-
-        // Make a renderer that fills the screen
-        let renderer = new THREE.WebGLRenderer({antialias: true});
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        // Turn on VR support
-        renderer.xr.enabled = true;
-        // Set animation loop
-        renderer.setAnimationLoop(render);
-        // Add canvas to the page
-        document.body.appendChild(renderer.domElement);
-
-         function render(time) {  
-            // Rotate the cube
-            cube.rotation.y = time / 1000;
-            cube.rotation.x = time / 1000;       
-            // Draw everything
-            renderer.render(scene, camera);
-        }
-
         }
     </style>
 </head>
@@ -54,6 +27,17 @@
 		document.addEventListener("DOMContentLoaded", function(){
 			const app = new App();
 			window.app = app;
+            const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
+        this.scene.add(ambient);
+
+        this.cube = new THREE.Mesh(
+            new THREE.BoxBufferGeometry(1, 1, 1),
+            new THREE.MeshLambertMaterial({color:'green'})
+        );
+        this.cube.position.set(0, 1.5, 4);
+        this.scene.add(this.cube);
+this.cube.rotation.y = timestamp / 1000;
+        this.cube.rotation.x = timestamp / 1000;
 		});
 	</script>
 </body>
